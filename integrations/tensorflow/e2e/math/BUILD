@@ -501,7 +501,7 @@ iree_e2e_cartesian_product_test_suite(
         {
             # Failing on llvm.
             "functions": LLVM_FAILING,
-            "target_backends": "iree_llvmjit",
+            "target_backends": "iree_llvmaot",
         },
         {
             # Failing on vulkan.
@@ -518,7 +518,7 @@ iree_e2e_cartesian_product_test_suite(
             "tf",
             "tflite",
             "iree_vmla",
-            "iree_llvmjit",
+            "iree_llvmaot",
             "iree_vulkan",
         ],
     },
@@ -570,8 +570,7 @@ VULKAN_FAILING_MULTIPLE = VULKAN_FAILING + ["square"]
         ],
     )
     for target_backend, functions in dict(
-        # TODO(#2673): enable LLVM AOT for these tests. JIT is deprecated.
-        # iree_llvmjit = set_difference(TF_MATH_FUNCTIONS, LLVM_FAILING_MULTIPLE),
+        iree_llvmaot = set_difference(TF_MATH_FUNCTIONS, LLVM_FAILING_MULTIPLE),
         iree_vmla = set_difference(TF_MATH_FUNCTIONS, VMLA_FAILING_MULTIPLE),
         iree_vulkan = set_difference(TF_MATH_FUNCTIONS, VULKAN_FAILING_MULTIPLE),
         tf = TF_MATH_FUNCTIONS,
@@ -742,7 +741,7 @@ iree_e2e_cartesian_product_test_suite(
         {
             # Failing on llvm.
             "functions": LLVM_FAILING_DYNAMIC,
-            "target_backends": "iree_llvmjit",
+            "target_backends": "iree_llvmaot",
         },
         {
             # Failing on vulkan.
@@ -759,7 +758,7 @@ iree_e2e_cartesian_product_test_suite(
             "tf",
             "tflite",
             "iree_vmla",
-            "iree_llvmjit",
+            "iree_llvmaot",
             "iree_vulkan",
         ],
     },
@@ -804,8 +803,7 @@ VMLA_FAILING_DYNAMIC_MULTIPLE = VMLA_FAILING_DYNAMIC + ["multiply"]
         ],
     )
     for target_backend, functions in dict(
-        # TODO(#2673): enable LLVM AOT for these tests. JIT is deprecated.
-        # iree_llvmjit = set_difference(TF_MATH_FUNCTIONS, LLVM_FAILING_DYNAMIC),
+        iree_llvmaot = set_difference(TF_MATH_FUNCTIONS, LLVM_FAILING_DYNAMIC),
         iree_vmla = set_difference(TF_MATH_FUNCTIONS, VMLA_FAILING_DYNAMIC_MULTIPLE),
         iree_vulkan = set_difference(TF_MATH_FUNCTIONS, VULKAN_FAILING_DYNAMIC),
         tf = TF_MATH_FUNCTIONS,
@@ -913,7 +911,7 @@ iree_e2e_cartesian_product_test_suite(
         {
             # Failing on llvm.
             "functions": LLVM_FAILING_COMPLEX,
-            "target_backends": "iree_llvmjit",
+            "target_backends": "iree_llvmaot",
         },
         {
             # Failing on vulkan.
@@ -930,7 +928,7 @@ iree_e2e_cartesian_product_test_suite(
             "tf",
             "tflite",
             "iree_vmla",
-            "iree_llvmjit",
+            "iree_llvmaot",
             "iree_vulkan",
         ],
     },
@@ -982,8 +980,7 @@ VULKAN_FAILING_COMPLEX_MULTIPLE = VULKAN_FAILING_COMPLEX + ["square"]
         ],
     )
     for target_backend, functions in dict(
-        # TODO(#2673): enable LLVM AOT for these tests. JIT is deprecated.
-        # iree_llvmjit = set_difference(TF_MATH_FUNCTIONS, LLVM_FAILING_COMPLEX_MULTIPLE),
+        iree_llvmaot = set_difference(TF_MATH_FUNCTIONS, LLVM_FAILING_COMPLEX_MULTIPLE),
         iree_vmla = set_difference(TF_MATH_FUNCTIONS, VMLA_FAILING_COMPLEX_MULTIPLE),
         iree_vulkan = set_difference(TF_MATH_FUNCTIONS, VULKAN_FAILING_COMPLEX_MULTIPLE),
         tf = TF_MATH_FUNCTIONS,
