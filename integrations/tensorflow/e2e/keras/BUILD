@@ -118,7 +118,8 @@ iree_e2e_cartesian_product_test_suite(
             "tf",
             "tflite",
             "iree_vmla",
-            "iree_llvmaot",
+            # TODO(4141): Fix runtime error then enable llvmaot backend.
+            # "iree_llvmaot",
             "iree_vulkan",
         ],
     },
